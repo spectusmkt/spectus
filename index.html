@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectus · Estratégia &amp; Performance</title>
+<meta name="description" content="Agência de estratégia e performance para negócios locais e infoprodutores. Tráfego, funil e comercial trabalhando juntos para gerar crescimento previsível.">
+<meta property="og:title" content="Spectus · Estratégia &amp; Performance">
+<meta property="og:description" content="Estratégia e performance para negócios locais e infoprodutores que querem crescer com previsibilidade.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Spectus">
+<meta name="theme-color" content="#101f42">
+<link rel="icon" type="image/png" href="imagens/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#101f42;
+  --navy-deep:#0a1530;
+  --navy-2:#16295a;
+  --sky:#aac2ff;
+  --sky-lt:#d6e2ff;
+  --sky-pale:#eef3ff;
+  --white:#ffffff;
+
+  --ink:#101f42;
+  --ink-2:#3d4a6b;
+  --ink-3:#6b7593;
+  --on-dark:#ffffff;
+  --on-dark-2:rgba(255,255,255,.74);
+  --on-dark-3:rgba(255,255,255,.52);
+
+  --line:rgba(16,31,66,.1);
+  --line-dark:rgba(170,194,255,.16);
+
+  --maxw:1200px;
+  --r:14px;
+  --r-lg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --shadow:0 24px 60px -24px rgba(16,31,66,.28);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.12;letter-spacing:-.025em;font-weight:700}
+p{margin:0}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:6px}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:120px 0}
+.dark{background:var(--navy);color:var(--on-dark)}
+.deep{background:var(--navy-deep);color:var(--on-dark)}
+.pale{background:var(--sky-pale)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--navy-2)}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.dark .eyebrow,.deep .eyebrow{color:var(--sky)}
+.h2{font-size:clamp(30px,4.2vw,50px)}
+.lead{font-size:clamp(16px,1.5vw,18px);color:var(--ink-2);max-width:620px}
+.dark .lead,.deep .lead{color:var(--on-dark-2)}
+.head{display:grid;gap:18px;margin-bottom:64px}
+.head.center{text-align:center;justify-items:center}
+.hl{color:var(--sky)}
+.hl-ink{background:linear-gradient(180deg,transparent 62%,var(--sky-lt) 62%);padding:0 .08em}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:600 15px/1 'Poppins',sans-serif;padding:20px 30px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-sky{background:var(--sky);color:var(--navy);box-shadow:0 14px 40px -12px rgba(170,194,255,.65)}
+.btn-sky:hover{transform:translateY(-2px);background:#bccfff}
+.btn-navy{background:var(--navy);color:var(--white);box-shadow:0 14px 40px -14px rgba(16,31,66,.6)}
+.btn-navy:hover{transform:translateY(-2px);background:var(--navy-2)}
+.btn-ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--sky);color:var(--sky)}
+.micro{font-size:13px;color:var(--on-dark-3);display:flex;align-items:center;gap:8px}
+.micro svg{width:15px;height:15px;color:var(--sky);flex:none}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:22px 0}
+.top.solid{background:rgba(10,21,48,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-dark);padding:14px 0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.top .logo img{height:34px;width:auto}
+.nav{display:flex;gap:32px}
+.nav a{color:var(--on-dark-2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav a:hover{color:var(--white)}
+.top .btn{padding:13px 22px;font-size:14px}
+
+/* Hero */
+.hero{position:relative;background:var(--navy-deep);color:var(--on-dark);padding:170px 0 0;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(60% 55% at 78% 30%,rgba(170,194,255,.20),transparent 70%),
+  radial-gradient(50% 60% at 0% 100%,rgba(22,41,90,.9),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(var(--line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--line-dark) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 70% at 60% 30%,#000,transparent 75%);mask-image:radial-gradient(70% 70% at 60% 30%,#000,transparent 75%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(170,194,255,.08);box-shadow:inset 0 0 0 1px var(--line-dark);font-size:13px;color:var(--on-dark-2);margin-bottom:28px}
+.pill b{background:var(--sky);color:var(--navy);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.hero h1{font-size:clamp(38px,5.6vw,68px);font-weight:700;letter-spacing:-.035em;line-height:1.04;margin-bottom:26px}
+.hero h1 .hl{position:relative;white-space:nowrap}
+.hero .sub{font-size:clamp(17px,1.6vw,19px);color:var(--on-dark-2);max-width:540px;margin-bottom:40px}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;margin-bottom:22px}
+
+.panel{position:relative;background:linear-gradient(160deg,rgba(22,41,90,.95),rgba(16,31,66,.92));border-radius:var(--r-lg);padding:28px;box-shadow:inset 0 0 0 1px var(--line-dark),0 40px 90px -30px rgba(0,0,0,.6)}
+.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.panel-top span{font-size:13px;color:var(--on-dark-3)}
+.panel-top strong{display:block;font-size:15px;font-weight:600;color:var(--white)}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--sky);background:rgba(170,194,255,.1);padding:6px 12px;border-radius:999px}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--sky);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(170,194,255,.6)}100%{box-shadow:0 0 0 10px rgba(170,194,255,0)}}
+.chart{width:100%;height:auto;display:block}
+.chart .line{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s .4s var(--ease) forwards}
+.chart .area{opacity:0;animation:fade 1.2s 1.4s forwards}
+.chart .dot{opacity:0;animation:fade .5s 2.5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.kpi{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;box-shadow:inset 0 0 0 1px var(--line-dark)}
+.kpi span{display:block;font-size:12px;color:var(--on-dark-3);margin-bottom:6px}
+.kpi strong{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600}
+.kpi svg{width:14px;height:14px;color:var(--sky)}
+.float{position:absolute;background:var(--white);color:var(--navy);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;font-size:13px;line-height:1.35}
+.float .ic{width:38px;height:38px;border-radius:10px;background:var(--sky-pale);display:grid;place-items:center;flex:none}
+.float .ic svg{width:20px;height:20px;color:var(--navy)}
+.float b{display:block;font-size:14px}
+.float-1{left:-34px;bottom:-26px;animation:bob 6s ease-in-out infinite}
+.float-2{right:-22px;top:-26px;animation:bob 6s 1.5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:110px;border-top:1px solid var(--line-dark)}
+.stat{padding:38px 28px;border-right:1px solid var(--line-dark)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font-size:clamp(30px,3.4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:10px}
+.stat strong em{font-style:normal;color:var(--sky)}
+.stat span{font-size:14px;color:var(--on-dark-3)}
+
+/* Marquee de clientes */
+.logos{padding:46px 0;border-bottom:1px solid var(--line);overflow:hidden}
+.logos p{text-align:center;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:26px}
+.track{display:flex;gap:64px;width:max-content;animation:scroll 40s linear infinite}
+.logos:hover .track{animation-play-state:paused}
+.track span{font-size:20px;font-weight:700;color:rgba(16,31,66,.32);white-space:nowrap;letter-spacing:-.02em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Problema */
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.pain-list{display:grid;gap:14px}
+.pain{display:flex;gap:18px;padding:22px 24px;border-radius:var(--r);background:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.pain .x{width:30px;height:30px;border-radius:50%;background:#fde9ec;color:#c4314b;display:grid;place-items:center;flex:none;margin-top:2px}
+.pain .x svg{width:14px;height:14px}
+.pain h4{font-size:16px;font-weight:600;margin-bottom:4px;letter-spacing:-.01em}
+.pain p{font-size:14.5px;color:var(--ink-2)}
+.turn{margin-top:32px;padding:28px;border-radius:var(--r-lg);background:var(--navy);color:var(--white);display:flex;gap:18px;align-items:flex-start}
+.turn img{width:34px;height:auto;flex:none;margin-top:2px}
+.turn p{font-size:17px;line-height:1.5}
+.turn p b{color:var(--sky);font-weight:600}
+
+/* Para quem: tabs */
+.tabs{display:inline-flex;padding:6px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line-dark);margin-bottom:48px}
+.tab{font:600 15px/1 'Poppins',sans-serif;color:var(--on-dark-2);background:transparent;border:0;padding:15px 26px;border-radius:999px;cursor:pointer;transition:all .25s var(--ease)}
+.tab[aria-selected="true"]{background:var(--sky);color:var(--navy)}
+.tabpanel{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.tabpanel[hidden]{display:none}
+.tabpanel h3{font-size:clamp(26px,3vw,36px);margin-bottom:18px}
+.tabpanel .lead{margin-bottom:30px}
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card-d{padding:26px;border-radius:var(--r);background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line-dark);transition:background .3s,transform .3s var(--ease)}
+.card-d:hover{background:rgba(170,194,255,.08);transform:translateY(-3px)}
+.card-d .ic{width:46px;height:46px;border-radius:12px;background:rgba(170,194,255,.12);display:grid;place-items:center;margin-bottom:18px}
+.card-d .ic svg{width:22px;height:22px;color:var(--sky)}
+.card-d h4{font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.card-d p{font-size:14.5px;color:var(--on-dark-2)}
+.checks{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;font-size:15.5px;color:var(--on-dark-2)}
+.checks svg{width:20px;height:20px;color:var(--sky);flex:none;margin-top:2px}
+
+/* Método */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;position:relative}
+.step{position:relative;padding:34px 28px 30px;border-radius:var(--r-lg);background:var(--white);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .3s,transform .3s var(--ease)}
+.step:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--sky),var(--shadow)}
+.step .n{font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.14em;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center}
+.step .n i{font-style:normal;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--sky);display:grid;place-items:center;font-size:18px;font-weight:700;letter-spacing:0}
+.step h3{font-size:21px;margin-bottom:12px}
+.step p{font-size:14.5px;color:var(--ink-2);margin-bottom:20px}
+.step ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px dashed var(--line);display:grid;gap:8px}
+.step li{font-size:13.5px;color:var(--ink-2);display:flex;gap:8px}
+.step li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sky);margin-top:8px;flex:none}
+.step.hl-step{background:var(--navy);color:var(--white);box-shadow:none}
+.step.hl-step p,.step.hl-step li{color:var(--on-dark-2)}
+.step.hl-step .n{color:var(--sky)}
+.step.hl-step .n i{background:var(--sky);color:var(--navy)}
+.step.hl-step ul{border-color:var(--line-dark)}
+
+/* Cases */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case{display:flex;flex-direction:column;border-radius:var(--r-lg);background:var(--white);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+.case:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--line),var(--shadow)}
+.case-top{background:var(--navy);color:var(--white);padding:30px 28px 26px;position:relative;overflow:hidden}
+.case-top::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:url(imagens/simbolo-spectus-branco.png) center/contain no-repeat;opacity:.07}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:rgba(170,194,255,.14);color:var(--sky);margin-bottom:20px}
+.case-top strong{display:block;font-size:52px;font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--sky);margin-bottom:8px}
+.case-top span{font-size:15px;color:var(--on-dark-2)}
+.case-body{padding:26px 28px 30px;display:grid;gap:18px;flex:1}
+.case-body h4{font-size:18px;letter-spacing:-.01em}
+.case-body p{font-size:14.5px;color:var(--ink-2)}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.case-meta div span{display:block;font-size:12px;color:var(--ink-3)}
+.case-meta div b{font-size:16px}
+
+/* Depoimentos */
+.testis{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi{padding:32px 30px;border-radius:var(--r-lg);background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line-dark);display:flex;flex-direction:column;gap:24px}
+.testi.big{grid-column:span 2;background:linear-gradient(140deg,var(--navy-2),var(--navy));}
+.stars{display:flex;gap:3px;color:var(--sky)}
+.stars svg{width:17px;height:17px}
+.testi blockquote{margin:0;font-size:16.5px;line-height:1.6;color:var(--white);flex:1}
+.testi.big blockquote{font-size:clamp(19px,2vw,24px);line-height:1.45;font-weight:500;letter-spacing:-.01em}
+.who{display:flex;align-items:center;gap:14px}
+.av{width:48px;height:48px;border-radius:50%;background:var(--sky);color:var(--navy);display:grid;place-items:center;font-weight:700;font-size:16px;flex:none;object-fit:cover}
+.who b{display:block;font-size:15px}
+.who span{font-size:13px;color:var(--on-dark-3)}
+.video{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:260px;background:linear-gradient(160deg,var(--navy-2),var(--navy-deep));box-shadow:inset 0 0 0 1px var(--line-dark);display:flex;align-items:flex-end;padding:26px;text-decoration:none}
+.video .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:var(--sky);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.video .play svg{width:26px;height:26px;color:var(--navy);margin-left:4px}
+.prints{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.print{aspect-ratio:9/12;border-radius:var(--r);background:rgba(255,255,255,.03);border:1px dashed var(--line-dark);display:grid;place-items:center;text-align:center;font-size:13px;color:var(--on-dark-3);padding:18px}
+
+/* Comparativo */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:0 auto}
+.col{border-radius:var(--r-lg);padding:38px 34px}
+.col h3{font-size:20px;margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.col ul{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.col li{display:flex;gap:12px;font-size:15.5px}
+.col li svg{width:20px;height:20px;flex:none;margin-top:2px}
+.col.them{background:var(--sky-pale);color:var(--ink-2)}
+.col.them h3{color:var(--ink-3)}
+.col.them svg{color:#c4314b}
+.col.us{background:var(--navy);color:var(--white);box-shadow:var(--shadow)}
+.col.us h3 img{height:26px;width:auto}
+.col.us li{color:var(--on-dark-2)}
+.col.us svg{color:var(--sky)}
+
+/* Fit */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fit .box{border-radius:var(--r-lg);padding:36px 34px;box-shadow:inset 0 0 0 1px var(--line)}
+.fit .box.yes{background:var(--white)}
+.fit .box.no{background:transparent}
+.fit h3{font-size:20px;margin-bottom:22px}
+.fit ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.fit li{display:flex;gap:12px;font-size:15.5px;color:var(--ink-2)}
+.fit li svg{width:20px;height:20px;flex:none;margin-top:2px}
+.fit .yes svg{color:var(--navy)}
+.fit .no svg{color:var(--ink-3)}
+
+/* Formulário */
+.apply{position:relative;overflow:hidden;isolation:isolate}
+.apply::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 85% 20%,rgba(170,194,255,.18),transparent 70%)}
+.apply-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
+.apply .bullets{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:20px}
+.apply .bullets li{display:flex;gap:16px}
+.apply .bullets .num{width:38px;height:38px;border-radius:50%;background:rgba(170,194,255,.12);color:var(--sky);display:grid;place-items:center;font-weight:700;flex:none}
+.apply .bullets b{display:block;font-size:16px;margin-bottom:2px}
+.apply .bullets span{font-size:14.5px;color:var(--on-dark-2)}
+form{background:var(--white);color:var(--ink);border-radius:var(--r-lg);padding:38px;box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
+form h3{font-size:22px;margin-bottom:6px}
+form > p{font-size:14px;color:var(--ink-3);margin-bottom:26px}
+.field{display:grid;gap:8px;margin-bottom:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label,.legend{font-size:13px;font-weight:600;color:var(--ink)}
+input,select{width:100%;font:400 15px 'Poppins',sans-serif;color:var(--ink);background:var(--sky-pale);border:1px solid transparent;border-radius:12px;padding:15px 16px;transition:border .2s,background .2s;appearance:none;-webkit-appearance:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101f42' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:44px}
+input:focus,select:focus{outline:none;border-color:var(--navy);background-color:var(--white)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{display:flex;align-items:center;gap:10px;padding:15px 16px;border-radius:12px;background:var(--sky-pale);cursor:pointer;font-weight:500;font-size:14.5px;border:1px solid transparent;transition:all .2s}
+.seg label i{width:18px;height:18px;border-radius:50%;border:2px solid var(--ink-3);flex:none;transition:all .2s}
+.seg input:checked + label{border-color:var(--navy);background:var(--white)}
+.seg input:checked + label i{border:5px solid var(--navy)}
+.seg input:focus-visible + label{outline:2px solid var(--sky);outline-offset:2px}
+form .btn{width:100%;margin-top:8px;padding:21px}
+.privacy{font-size:12.5px;color:var(--ink-3);text-align:center;margin-top:14px}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:32px;height:32px;border-radius:50%;background:var(--sky-pale);flex:none;position:relative;transition:background .25s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--navy);transform:translate(-50%,-50%);transition:transform .3s var(--ease)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary i{background:var(--navy)}
+.faq details[open] summary i::before,.faq details[open] summary i::after{background:var(--sky)}
+.faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.faq details p{padding:0 50px 26px 0;color:var(--ink-2);font-size:15.5px}
+
+/* CTA final */
+.final{text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.final::before{content:"";position:absolute;left:50%;top:50%;width:620px;height:660px;transform:translate(-50%,-50%);background:url(imagens/simbolo-spectus-branco.png) center/contain no-repeat;opacity:.045;z-index:-1}
+.final h2{font-size:clamp(34px,5vw,60px);max-width:880px;margin:0 auto 22px}
+.final .lead{margin:0 auto 40px}
+.final .hero-cta{justify-content:center}
+
+/* Footer */
+footer{background:var(--navy-deep);color:var(--on-dark-3);padding:56px 0 40px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+footer img{height:30px;width:auto}
+footer nav{display:flex;gap:24px;flex-wrap:wrap}
+footer a{text-decoration:none;color:var(--on-dark-2)}
+footer a:hover{color:var(--sky)}
+.copy{width:100%;padding-top:28px;margin-top:8px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+
+/* WhatsApp flutuante */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:30px;height:30px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .chart .line{stroke-dashoffset:0}.chart .area,.chart .dot{opacity:1}
+}
+
+/* Responsivo */
+@media (max-width:1080px){
+  .nav{display:none}
+  .hero-grid,.pain-grid,.tabpanel,.apply-grid,.faq-grid{grid-template-columns:1fr}
+  .hero-grid{gap:72px}
+  .panel{max-width:560px;margin:0 30px}
+  .steps{grid-template-columns:1fr 1fr}
+  .cases{grid-template-columns:1fr 1fr}
+  .testis{grid-template-columns:1fr 1fr}
+  .testi.big{grid-column:span 2}
+  .prints{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--line-dark)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3){padding-left:0}
+  .stat:nth-child(n+3){border-bottom:0}
+  .faq-grid,.pain-grid,.apply-grid{gap:48px}
+}
+@media (max-width:720px){
+  .section{padding:84px 0}
+  .wrap{padding:0 20px}
+  .head{margin-bottom:44px}
+  .top .logo img{height:28px}
+  .top .btn{padding:11px 16px;font-size:13px}
+  .hero{padding-top:130px}
+  .pill{font-size:12px;padding:6px 14px 6px 6px}
+  .pill b{font-size:10px;padding:4px 8px;white-space:nowrap}
+  .float-2{right:auto;left:40px}
+  .hero h1 .hl{white-space:normal}
+  .hero-cta .btn{width:100%}
+  .panel{margin:0 6px;padding:20px}
+  .kpis{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .kpi{padding:10px}
+  .kpi strong{font-size:13px}
+  .float{font-size:12px;padding:10px 14px}
+  .float .ic{width:32px;height:32px}
+  .float-1{left:-12px;bottom:-30px}
+  .float-2{right:-10px;top:-30px}
+  .stats{margin-top:90px}
+  .stat{padding:26px 14px}
+  .stat:nth-child(odd){padding-left:0}
+  .steps,.cases,.testis,.compare,.fit,.deliv{grid-template-columns:1fr}
+  .testi.big{grid-column:auto}
+  .tabs{display:flex;width:100%}
+  .tab{flex:1;padding:14px 10px;font-size:14px}
+  .row,.seg{grid-template-columns:1fr}
+  form{padding:28px 22px}
+  .col,.fit .box{padding:30px 24px}
+  .faq details p{padding-right:0}
+  .copy{flex-direction:column}
+  .wa{width:54px;height:54px;right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ====================================================================
+  CONTEÚDOS PARA SUBSTITUIR (procure por "EDITAR" neste arquivo)
+  1. WHATSAPP: número no script do final da página (const WHATSAPP)
+  2. Números da faixa de prova social (hero)
+  3. Nomes dos clientes no letreiro
+  4. Os 3 cases (segmento, resultado, prazo)
+  5. Depoimentos (texto, nome, segmento, foto) + vídeo + prints
+  6. Instagram / CNPJ no rodapé
+  ====================================================================
+-->
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Spectus, início"><img src="imagens/logo-spectus-branco.png" alt="Spectus Estratégia &amp; Performance" width="720" height="170"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#para-quem">Para quem</a>
+      <a href="#metodo">Método</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a href="#diagnostico" class="btn btn-sky">Agendar diagnóstico</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="pill rv"><b>Vagas limitadas</b> Atendemos poucos clientes por vez</div>
+        <h1 class="rv d1">Marketing que vira <span class="hl">faturamento</span>, não só curtida.</h1>
+        <p class="sub rv d2">Estratégia, tráfego e comercial trabalhando juntos para negócios locais e infoprodutores que querem crescer com previsibilidade e parar de depender da sorte.</p>
+        <div class="hero-cta rv d3">
+          <a href="#diagnostico" class="btn btn-sky">Quero um diagnóstico gratuito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a href="#resultados" class="btn btn-ghost">Ver resultados</a>
+        </div>
+        <p class="micro rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sem compromisso. Você sai da conversa com um plano, mesmo que não feche com a gente.</p>
+      </div>
+
+      <div class="rv d2" aria-hidden="true">
+        <div class="panel">
+          <div class="panel-top">
+            <div><span>Painel de performance</span><strong>Faturamento mensal</strong></div>
+            <span class="live"><i></i>Ao vivo</span>
+          </div>
+          <svg class="chart" viewBox="0 0 400 190" fill="none">
+            <defs>
+              <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#aac2ff" stop-opacity=".35"/><stop offset="1" stop-color="#aac2ff" stop-opacity="0"/></linearGradient>
+            </defs>
+            <g stroke="rgba(170,194,255,.12)"><path d="M0 40h400M0 85h400M0 130h400M0 175h400"/></g>
+            <path class="area" d="M0 168 L50 160 L95 164 L140 140 L185 132 L230 108 L275 96 L320 62 L365 44 L400 20 L400 190 L0 190Z" fill="url(#ga)"/>
+            <path class="line" d="M0 168 L50 160 L95 164 L140 140 L185 132 L230 108 L275 96 L320 62 L365 44 L400 20" stroke="#aac2ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g class="dot"><circle cx="400" cy="20" r="7" fill="#aac2ff"/><circle cx="400" cy="20" r="14" fill="#aac2ff" fill-opacity=".2"/></g>
+          </svg>
+          <div class="kpis">
+            <div class="kpi"><span>Leads</span><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Em alta</strong></div>
+            <div class="kpi"><span>Custo por lead</span><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 7l10 10M17 8v9H8"/></svg>Caindo</strong></div>
+            <div class="kpi"><span>Vendas</span><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Em alta</strong></div>
+          </div>
+          <div class="float float-2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><b>Novo lead qualificado</b>agora pelo WhatsApp</div></div>
+          <div class="float float-1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><b>Venda aprovada</b>campanha de lançamento</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITAR: números reais da Spectus -->
+    <div class="stats">
+      <div class="stat rv"><strong><em>+</em>R$ 00 mi</strong><span>em vendas geradas para clientes</span></div>
+      <div class="stat rv d1"><strong><em>+</em>000</strong><span>negócios atendidos</span></div>
+      <div class="stat rv d2"><strong>R$ 00 mi</strong><span>investidos em mídia sob gestão</span></div>
+      <div class="stat rv d3"><strong>00<em>x</em></strong><span>retorno médio sobre o investimento</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LETREIRO DE CLIENTES. EDITAR: nomes ou trocar por <img> dos logos -->
+<div class="logos" aria-label="Alguns clientes">
+  <p>Negócios que já crescem com a Spectus</p>
+  <div class="track">
+    <span>Cliente 01</span><span>Cliente 02</span><span>Cliente 03</span><span>Cliente 04</span><span>Cliente 05</span><span>Cliente 06</span><span>Cliente 07</span><span>Cliente 08</span>
+    <span aria-hidden="true">Cliente 01</span><span aria-hidden="true">Cliente 02</span><span aria-hidden="true">Cliente 03</span><span aria-hidden="true">Cliente 04</span><span aria-hidden="true">Cliente 05</span><span aria-hidden="true">Cliente 06</span><span aria-hidden="true">Cliente 07</span><span aria-hidden="true">Cliente 08</span>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="section pale">
+  <div class="wrap pain-grid">
+    <div class="rv">
+      <div class="head" style="margin-bottom:0">
+        <span class="eyebrow">O problema</span>
+        <h2 class="h2">Você não precisa de mais posts. Precisa de <span class="hl-ink">previsibilidade.</span></h2>
+        <p class="lead">A maioria dos negócios não trava por falta de esforço. Trava porque o marketing está solto: anúncio de um lado, conteúdo do outro, comercial no improviso. E ninguém olha para o número que importa.</p>
+      </div>
+      <div class="turn">
+        <img src="imagens/simbolo-spectus-branco.png" alt="" width="240" height="256">
+        <p>Na Spectus, cada real investido tem um destino: <b>gerar venda.</b> Estratégia primeiro, execução depois, e tudo medido.</p>
+      </div>
+    </div>
+    <div class="pain-list">
+      <div class="pain rv"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><h4>Investe em anúncio e não sabe o retorno</h4><p>O dinheiro sai todo mês, mas ninguém consegue dizer quanto voltou em vendas.</p></div></div>
+      <div class="pain rv d1"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><h4>Mês bom, mês ruim, sem saber por quê</h4><p>O faturamento oscila e você vive apagando incêndio em vez de planejar.</p></div></div>
+      <div class="pain rv d2"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><h4>Chega lead, mas não vira cliente</h4><p>Contatos frios, curiosos e gente pedindo desconto. O comercial perde tempo.</p></div></div>
+      <div class="pain rv d3"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div><h4>Já trocou de agência e nada mudou</h4><p>Relatório bonito, muita métrica de vaidade e nenhum crescimento real.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="section dark" id="para-quem">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Para quem é</span>
+      <h2 class="h2">Dois modelos de negócio. <span class="hl">Uma obsessão: resultado.</span></h2>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Escolha o seu modelo de negócio">
+      <button class="tab" role="tab" id="t-local" aria-controls="p-local" aria-selected="true">Negócios locais</button>
+      <button class="tab" role="tab" id="t-info" aria-controls="p-info" aria-selected="false" tabindex="-1">Infoprodutores</button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-local" aria-labelledby="t-local">
+      <div>
+        <h3>Agenda cheia e loja movimentada, todo mês.</h3>
+        <p class="lead">Clínicas, restaurantes, escritórios, lojas, prestadores de serviço. Colocamos o seu negócio na frente de quem está pronto para comprar na sua região.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Mais agendamentos, orçamentos e visitas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Domínio da sua cidade no Google e no Instagram</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Atendimento no WhatsApp que converte</li>
+        </ul>
+        <a href="#diagnostico" class="btn btn-sky" data-seg="local">Quero crescer na minha região <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+      <div class="deliv">
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>Tráfego geolocalizado</h4><p>Meta e Google Ads focados no raio onde estão os seus clientes.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h4>Google Meu Negócio</h4><p>Perfil otimizado e avaliações para aparecer primeiro nas buscas locais.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Processo comercial</h4><p>Scripts e rotina de atendimento para transformar contato em cliente.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></div><h4>Painel de resultados</h4><p>Você acompanha leads, custo e vendas em um lugar, sem planilha confusa.</p></div>
+      </div>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-info" aria-labelledby="t-info" hidden>
+      <div>
+        <h3>Lançamentos e perpétuo que escalam com lucro.</h3>
+        <p class="lead">Experts, mentores e produtores de cursos, comunidades e eventos. Estruturamos o funil inteiro para você vender mais com o mesmo público, e alcançar o próximo.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lançamentos com captação inteligente e CPL controlado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Perpétuo rodando todos os dias com ROAS saudável</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Esteira de produtos para aumentar o LTV</li>
+        </ul>
+        <a href="#diagnostico" class="btn btn-sky" data-seg="info">Quero escalar meu produto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+      <div class="deliv">
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="m12 15-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/></svg></div><h4>Estratégia de lançamento</h4><p>Planejamento de captação, aquecimento, evento e carrinho, com metas por fase.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></div><h4>Funis perpétuos</h4><p>Webinário, VSL ou aplicação: o funil certo para o seu ticket e público.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4>Criativos que vendem</h4><p>Roteiros e anúncios testados em escala, guiados por dados e não por achismo.</p></div>
+        <div class="card-d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></div><h4>Métricas de verdade</h4><p>CPL, conversão de página, ROAS e LTV acompanhados de perto, toda semana.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="section" id="metodo">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Método Spectus</span>
+      <h2 class="h2">Do diagnóstico à escala, <br>em quatro etapas claras.</h2>
+      <p class="lead">Nada de pacote pronto. Cada estratégia nasce dos números do seu negócio e evolui com eles.</p>
+    </div>
+    <div class="steps">
+      <article class="step rv"><div class="n">ETAPA <i>01</i></div><h3>Diagnóstico</h3><p>Raio-x completo do seu negócio: oferta, público, concorrência, funil e números atuais.</p><ul><li>Auditoria de contas e páginas</li><li>Análise de concorrentes</li><li>Metas realistas de crescimento</li></ul></article>
+      <article class="step rv d1"><div class="n">ETAPA <i>02</i></div><h3>Estratégia</h3><p>Plano de ação com posicionamento, canais, oferta e funil desenhados para o seu objetivo.</p><ul><li>Posicionamento e oferta</li><li>Desenho do funil</li><li>Plano de mídia e criativos</li></ul></article>
+      <article class="step rv d2"><div class="n">ETAPA <i>03</i></div><h3>Performance</h3><p>Execução com testes constantes. O que funciona ganha verba, o que não funciona sai.</p><ul><li>Gestão de tráfego pago</li><li>Criativos e páginas</li><li>Otimização semanal</li></ul></article>
+      <article class="step hl-step rv d3"><div class="n">ETAPA <i>04</i></div><h3>Escala</h3><p>Com o funil validado, aumentamos o investimento mantendo o lucro sob controle.</p><ul><li>Expansão de públicos e canais</li><li>Aumento do ticket e LTV</li><li>Reuniões de resultado</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- CASES. EDITAR: dados reais -->
+<section class="section pale" id="resultados">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Resultados</span>
+      <h2 class="h2">Números falam mais <br>que promessas.</h2>
+      <p class="lead">Alguns resultados de clientes que confiaram na Spectus para crescer.</p>
+    </div>
+    <div class="cases">
+      <article class="case rv">
+        <div class="case-top"><span class="tag">Negócio local</span><strong>00x</strong><span>mais agendamentos por mês</span></div>
+        <div class="case-body">
+          <h4>Segmento do cliente · Cidade/UF</h4>
+          <p>Resumo em duas linhas: como era o cenário antes e o que mudou com a estratégia da Spectus.</p>
+          <div class="case-meta"><div><span>Prazo</span><b>00 dias</b></div><div><span>Custo por lead</span><b>-00%</b></div></div>
+        </div>
+      </article>
+      <article class="case rv d1">
+        <div class="case-top"><span class="tag">Infoprodutor</span><strong>R$ 000 mil</strong><span>faturados em um lançamento</span></div>
+        <div class="case-body">
+          <h4>Nicho do expert</h4>
+          <p>Resumo em duas linhas: como era o cenário antes e o que mudou com a estratégia da Spectus.</p>
+          <div class="case-meta"><div><span>ROAS</span><b>00x</b></div><div><span>Leads captados</span><b>00 mil</b></div></div>
+        </div>
+      </article>
+      <article class="case rv d2">
+        <div class="case-top"><span class="tag">Negócio local</span><strong>+000%</strong><span>de faturamento em 6 meses</span></div>
+        <div class="case-body">
+          <h4>Segmento do cliente · Cidade/UF</h4>
+          <p>Resumo em duas linhas: como era o cenário antes e o que mudou com a estratégia da Spectus.</p>
+          <div class="case-meta"><div><span>Investimento</span><b>R$ 0 mil/mês</b></div><div><span>Retorno</span><b>00x</b></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS. EDITAR: depoimentos reais, fotos em imagens/ -->
+<section class="section deep">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Quem já está com a gente</span>
+      <h2 class="h2">Não acredite na nossa palavra. <br><span class="hl">Ouça nossos clientes.</span></h2>
+    </div>
+    <div class="testis">
+      <article class="testi big rv">
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <blockquote>“Espaço para o depoimento de maior impacto: o resultado concreto que o cliente teve, nas palavras dele, com números se possível.”</blockquote>
+        <div class="who"><span class="av">NC</span><div><b>Nome do cliente</b><span>Empresa · Segmento</span></div></div>
+      </article>
+      <a class="video rv d1" href="#" aria-label="Assistir depoimento em vídeo">
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4v16l14-8z"/></svg></span>
+        <div class="who"><span class="av">NC</span><div><b>Depoimento em vídeo</b><span>Nome · Segmento</span></div></div>
+      </a>
+      <article class="testi rv">
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <blockquote>“Depoimento de um negócio local: o que mudou na agenda, no movimento ou no faturamento.”</blockquote>
+        <div class="who"><span class="av">NC</span><div><b>Nome do cliente</b><span>Segmento · Cidade</span></div></div>
+      </article>
+      <article class="testi rv d1">
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <blockquote>“Depoimento de um infoprodutor: resultado do lançamento ou do perpétuo e como foi a parceria.”</blockquote>
+        <div class="who"><span class="av">NC</span><div><b>Nome do expert</b><span>Nicho · @instagram</span></div></div>
+      </article>
+      <article class="testi rv d2">
+        <div class="stars" aria-label="5 estrelas"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <blockquote>“Depoimento sobre o atendimento: proximidade, transparência e clareza nos números.”</blockquote>
+        <div class="who"><span class="av">NC</span><div><b>Nome do cliente</b><span>Empresa · Segmento</span></div></div>
+      </article>
+    </div>
+    <div class="prints">
+      <div class="print rv">Print de resultado<br>(dashboard, WhatsApp, vendas)</div>
+      <div class="print rv d1">Print de resultado</div>
+      <div class="print rv d2">Print de resultado</div>
+      <div class="print rv d3">Print de resultado</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="section">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">A diferença</span>
+      <h2 class="h2">Não somos mais uma agência <br>que só “sobe anúncio”.</h2>
+    </div>
+    <div class="compare">
+      <div class="col them rv">
+        <h3>Agência comum</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Pacote fechado igual para todo mundo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Foco em curtidas, alcance e seguidores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Relatório mensal que ninguém entende</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Você fala com um atendente, não com quem executa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Termina no clique. O que acontece depois não é problema dela</li>
+        </ul>
+      </div>
+      <div class="col us rv d1">
+        <h3><img src="imagens/logo-spectus-branco.png" alt="Spectus" width="720" height="170"></h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Estratégia sob medida a partir do seu diagnóstico</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foco em leads qualificados, vendas e lucro</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Painel em tempo real e reuniões de resultado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Time sênior dedicado, com contato direto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Olhamos do anúncio até o fechamento da venda</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É / NÃO É -->
+<section class="section pale">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Seletividade</span>
+      <h2 class="h2">Não atendemos todo mundo. <br>E isso é bom para você.</h2>
+      <p class="lead">Trabalhamos com poucos clientes por vez para manter o nível de dedicação que o resultado exige.</p>
+    </div>
+    <div class="fit">
+      <div class="box yes rv">
+        <h3>É para você se…</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Já fatura e quer crescer com consistência</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tem um produto ou serviço bom e validado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Entende marketing como investimento, não custo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Quer um parceiro estratégico, não um fornecedor</li>
+        </ul>
+      </div>
+      <div class="box no rv d1">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Procura o serviço mais barato do mercado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Espera resultado milagroso na primeira semana</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Não está disposto a investir em mídia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Não tem estrutura para atender mais clientes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="section dark apply" id="diagnostico">
+  <div class="wrap apply-grid">
+    <div class="rv">
+      <div class="head" style="margin-bottom:0">
+        <span class="eyebrow">Diagnóstico gratuito</span>
+        <h2 class="h2">Descubra quanto o seu negócio pode <span class="hl">crescer nos próximos 90 dias.</span></h2>
+        <p class="lead">Preencha em menos de um minuto. Um estrategista da Spectus vai analisar o seu cenário e falar com você pelo WhatsApp.</p>
+      </div>
+      <ul class="bullets">
+        <li><span class="num">1</span><div><b>Você preenche a aplicação</b><span>Algumas perguntas rápidas sobre o seu negócio.</span></div></li>
+        <li><span class="num">2</span><div><b>Analisamos o seu cenário</b><span>Contas de anúncio, presença digital e concorrência.</span></div></li>
+        <li><span class="num">3</span><div><b>Reunião de diagnóstico</b><span>Você recebe um plano de crescimento, gratuito e sem compromisso.</span></div></li>
+      </ul>
+    </div>
+
+    <form id="form" class="rv d1" novalidate>
+      <h3>Aplicação para diagnóstico</h3>
+      <p>Seus dados estão seguros e não serão compartilhados.</p>
+      <div class="field">
+        <span class="legend" id="lg-seg">Seu modelo de negócio</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lg-seg">
+          <input type="radio" name="segmento" id="s-local" value="Negócio local" checked><label for="s-local"><i></i>Negócio local</label>
+          <input type="radio" name="segmento" id="s-info" value="Infoprodutor"><label for="s-info"><i></i>Infoprodutor</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" placeholder="Seu nome" required></div>
+        <div class="field"><label for="whats">WhatsApp</label><input id="whats" name="whats" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required></div>
+      </div>
+      <div class="field"><label for="empresa">Empresa ou @ do Instagram</label><input id="empresa" name="empresa" placeholder="Ex.: @suaempresa" required></div>
+      <div class="row">
+        <div class="field"><label for="fat">Faturamento mensal</label>
+          <select id="fat" name="fat" required>
+            <option value="">Selecione</option>
+            <option>Até R$ 20 mil</option>
+            <option>R$ 20 mil a R$ 50 mil</option>
+            <option>R$ 50 mil a R$ 100 mil</option>
+            <option>R$ 100 mil a R$ 500 mil</option>
+            <option>Acima de R$ 500 mil</option>
+          </select>
+        </div>
+        <div class="field"><label for="inv">Investimento em anúncios</label>
+          <select id="inv" name="inv" required>
+            <option value="">Selecione</option>
+            <option>Ainda não invisto</option>
+            <option>Até R$ 3 mil/mês</option>
+            <option>R$ 3 mil a R$ 10 mil/mês</option>
+            <option>R$ 10 mil a R$ 30 mil/mês</option>
+            <option>Acima de R$ 30 mil/mês</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-navy">Quero meu diagnóstico gratuito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+      <p class="privacy">Resposta em até 24 horas úteis.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <div class="head rv" style="margin-bottom:0">
+      <span class="eyebrow">Dúvidas</span>
+      <h2 class="h2">Perguntas frequentes</h2>
+      <p class="lead">Não encontrou o que procurava? Fale com a gente pelo WhatsApp.</p>
+      <div><a href="#" class="btn btn-navy js-wa">Falar no WhatsApp</a></div>
+    </div>
+    <div class="faq rv d1">
+      <details open><summary>Em quanto tempo vejo resultado?<i></i></summary><p>Os primeiros sinais aparecem nas primeiras semanas, com aumento de contatos e melhora nos custos. O crescimento consistente vem entre o segundo e o terceiro mês, quando o funil já foi testado e otimizado.</p></details>
+      <details><summary>Qual o valor do investimento?<i></i></summary><p>Cada projeto é montado a partir do diagnóstico, de acordo com o seu momento e objetivo. Por isso apresentamos a proposta só depois da reunião, com metas e escopo bem definidos.</p></details>
+      <details><summary>Preciso ter contrato de fidelidade?<i></i></summary><p>Trabalhamos com ciclos de resultado, porque estratégia precisa de tempo para ser testada e escalada. Todas as condições ficam claras na proposta, antes de você decidir.</p></details>
+      <details><summary>Quanto preciso investir em anúncios?<i></i></summary><p>Depende da sua região, nicho e meta. No diagnóstico calculamos o investimento mínimo para atingir o resultado que você quer, para você investir com segurança.</p></details>
+      <details><summary>Vocês atendem o meu segmento?<i></i></summary><p>Atendemos negócios locais de diversos segmentos e infoprodutores de vários nichos. Se o seu produto é bom e você quer crescer, provavelmente sim. A aplicação ajuda a confirmar.</p></details>
+      <details><summary>Como acompanho os resultados?<i></i></summary><p>Você tem acesso a um painel com os números da operação e reuniões periódicas com o seu estrategista para analisar resultados e definir os próximos passos.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section deep final">
+  <div class="wrap">
+    <span class="eyebrow rv">Próximo passo</span>
+    <h2 class="rv d1" style="margin-top:20px">Seu concorrente já está investindo. <span class="hl">A diferença é a estratégia.</span></h2>
+    <p class="lead rv d2">Agende um diagnóstico gratuito e descubra o que está travando o crescimento do seu negócio.</p>
+    <div class="hero-cta rv d3">
+      <a href="#diagnostico" class="btn btn-sky">Agendar meu diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="imagens/logo-spectus-branco.png" alt="Spectus Estratégia &amp; Performance" width="720" height="170">
+    <nav aria-label="Rodapé">
+      <a href="#para-quem">Para quem</a>
+      <a href="#metodo">Método</a>
+      <a href="#resultados">Resultados</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><!-- EDITAR: @ da Spectus -->
+    </nav>
+    <div class="copy"><span>© <span id="ano">2026</span> Spectus Estratégia &amp; Performance. Todos os direitos reservados.</span><span>CNPJ 00.000.000/0001-00</span><!-- EDITAR --></div>
+  </div>
+</footer>
+
+<a href="#" class="wa js-wa" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2.1 12 .1 5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg></a>
+
+<script>
+// EDITAR: número do WhatsApp comercial (DDI + DDD + número, só dígitos)
+const WHATSAPP = '5500000000000';
+const waLink = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+
+document.querySelectorAll('.js-wa').forEach(a => {
+  a.href = waLink('Olá! Vim pelo site da Spectus e quero saber mais sobre um diagnóstico.');
+  a.target = '_blank'; a.rel = 'noopener';
+});
+
+// Header sólido ao rolar
+const top_ = document.getElementById('top');
+const onScroll = () => top_.classList.toggle('solid', scrollY > 30);
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// Reveal
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Abas
+const tabs = [...document.querySelectorAll('.tab')];
+const select = t => tabs.forEach(x => {
+  const on = x === t;
+  x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+  document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+});
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => select(t));
+  t.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+    select(n); n.focus();
+  });
+});
+
+// CTA das abas já marca o segmento no formulário
+document.querySelectorAll('[data-seg]').forEach(a => a.addEventListener('click', () => {
+  document.getElementById(a.dataset.seg === 'info' ? 's-info' : 's-local').checked = true;
+}));
+
+// Máscara simples de telefone
+const whats = document.getElementById('whats');
+whats.addEventListener('input', () => {
+  const d = whats.value.replace(/\D/g, '').slice(0, 11);
+  whats.value = d.length > 6 ? `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`
+              : d.length > 2 ? `(${d.slice(0,2)}) ${d.slice(2)}` : d;
+});
+
+// Envio: abre o WhatsApp com a aplicação preenchida
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const bad = [...f.querySelectorAll('[required]')].filter(el => !el.value.trim() || (el === whats && whats.value.replace(/\D/g,'').length < 10));
+  f.querySelectorAll('input,select').forEach(el => el.style.borderColor = '');
+  if (bad.length) { bad.forEach(el => el.style.borderColor = '#c4314b'); bad[0].focus(); return; }
+  const v = n => f.elements[n].value.trim();
+  const msg = `Olá! Quero um diagnóstico gratuito da Spectus.\n\n` +
+    `*Nome:* ${v('nome')}\n*WhatsApp:* ${v('whats')}\n*Modelo:* ${v('segmento')}\n` +
+    `*Empresa:* ${v('empresa')}\n*Faturamento:* ${v('fat')}\n*Investimento em anúncios:* ${v('inv')}`;
+  window.open(waLink(msg), '_blank', 'noopener');
+});
+
+document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
